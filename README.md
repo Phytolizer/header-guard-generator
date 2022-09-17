@@ -1,20 +1,14 @@
-# header-guard-generator README
+# Header Guard Generator
 
-This is the README for your extension "header-guard-generator". After writing up a brief description, we recommend including the following sections.
+A simple generator for C-style header guards.
 
-## Features
+## Usage
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
+The extension provides one command ("Generate Header Guard").
+It will generate a snippet containing by default the name of your header guard,
+and insert it at your cursor's position.
 
 \!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
 ## Extension Settings
 

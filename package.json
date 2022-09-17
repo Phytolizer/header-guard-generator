@@ -1,45 +1,64 @@
 {
-  "name": "header-guard-generator",
-  "displayName": "Header Guard Generator",
-  "description": "Generate C/C++ header guards",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.71.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:header-guard-generator.generateHeaderGuard"
-  ],
-  "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "header-guard-generator.generateHeaderGuard",
-        "title": "Generate Header Guard"
-      }
-    ]
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts"
-  },
-  "devDependencies": {
-    "@types/dedent": "^0.7.0",
-    "@types/glob": "^7.2.0",
-    "@types/mocha": "^9.1.1",
-    "@types/node": "16.x",
-    "@types/vscode": "^1.71.0",
-    "@typescript-eslint/eslint-plugin": "^5.31.0",
-    "@typescript-eslint/parser": "^5.31.0",
-    "dedent": "^0.7.0",
-    "eslint": "^8.20.0",
-    "glob": "^8.0.3",
-    "mocha": "^10.0.0",
-    "typescript": "^4.7.4"
-  }
+    "name": "header-guard-generator",
+    "displayName": "Header Guard Generator",
+    "description": "Generate C/C++ header guards",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Phytolizer/header-guard-generator"
+    },
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.71.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:header-guard-generator.generateHeaderGuard"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "header-guard-generator.generateHeaderGuard",
+                "title": "Generate Header Guard"
+            }
+        ],
+        "configuration": [
+            {
+                "title": "Header Guard Generator",
+                "properties": {
+                    "header-guard-generator.stopDirs": {
+                        "type": "array",
+                        "description": "A list of pseudo-root directories",
+                        "default": [
+                            "src",
+                            "include"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts"
+    },
+    "devDependencies": {
+        "@types/dedent": "^0.7.0",
+        "@types/glob": "^7.2.0",
+        "@types/mocha": "^9.1.1",
+        "@types/node": "16.x",
+        "@types/vscode": "^1.71.0",
+        "@typescript-eslint/eslint-plugin": "^5.31.0",
+        "@typescript-eslint/parser": "^5.31.0",
+        "dedent": "^0.7.0",
+        "eslint": "^8.20.0",
+        "glob": "^8.0.3",
+        "mocha": "^10.0.0",
+        "typescript": "^4.7.4"
+    }
 }
