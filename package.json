@@ -14,7 +14,8 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:header-guard-generator.generateHeaderGuard"
+        "onCommand:header-guard-generator.generateHeaderGuard",
+        "onCommand:header-guard-generator.updateHeaderGuard"
     ],
     "main": "./out/extension.js",
     "contributes": {
@@ -22,6 +23,10 @@
             {
                 "command": "header-guard-generator.generateHeaderGuard",
                 "title": "Generate Header Guard"
+            },
+            {
+                "command": "header-guard-generator.updateHeaderGuard",
+                "title": "Update Header Guard"
             }
         ],
         "configuration": [
