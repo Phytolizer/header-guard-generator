@@ -1,7 +1,21 @@
 import path = require("path");
 import * as vscode from "vscode";
 import dedent = require("dedent");
-import { findLastIndex } from "./util";
+
+declare global {
+    interface Array<T> {
+        findLastIndex(predicate: (value: T) => boolean): number | undefined;
+    }
+}
+
+Array.prototype.findLastIndex = function (predicate: (value: any) => boolean) {
+    for (let i = this.length - 1; i >= 0; i--) {
+        if (predicate(this[i])) {
+            return i;
+        }
+    }
+    return undefined;
+};
 
 class HeaderGuard {
     constructor(
@@ -70,12 +84,12 @@ function determineHeaderGuard(currentPath: string): string {
     const stopDirs = vscode.workspace
         .getConfiguration("header-guard-generator")
         .get("stopDirs", ["src", "include"]);
-    const stop = findLastIndex(parts, (part) => stopDirs.includes(part));
+    const stop = parts.findLastIndex((part) => stopDirs.includes(part));
     const name =
         stop === undefined
             ? parts[parts.length - 1]
             : parts.slice(stop + 1).join("_");
-    return name.replace(/\W/, "_");
+    return name.replaceAll(/\W/g, "_");
 }
 
 function findExistingHeaderGuard(
