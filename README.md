@@ -17,6 +17,7 @@ This extension contributes the following settings:
 - `header-guard-generator.stopDirs`: A list of directories that will be treated as the "root".
   The last matching directory found will be used.
   Use this to prevent leaking, for example, the name of your home directory.
+- `header-guard-generator.enableTrailingUnderscore`: If `true`, an "_" character is added at the end of the generated identifier.
 
 ## Known Issues
 

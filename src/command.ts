@@ -33,7 +33,10 @@ export function generateHeaderGuard() {
     }
 
     const currentPath = editor.document.fileName;
-    const guard = determineHeaderGuard(currentPath).toUpperCase() + "_";
+    const enableTrailingUnderscore = vscode.workspace
+        .getConfiguration("header-guard-generator")
+        .get("enableTrailingUnderscore", true);
+    const guard = determineHeaderGuard(currentPath).toUpperCase() + (enableTrailingUnderscore ? "_" : "");
 
     const snip = dedent(`
         #ifndef \${1:${guard}}
@@ -54,7 +57,10 @@ export function updateHeaderGuard() {
     }
 
     const currentPath = editor.document.fileName;
-    const guard = determineHeaderGuard(currentPath).toUpperCase() + "_";
+    const enableTrailingUnderscore = vscode.workspace
+        .getConfiguration("header-guard-generator")
+        .get("enableTrailingUnderscore", true);
+    const guard = determineHeaderGuard(currentPath).toUpperCase() + (enableTrailingUnderscore ? "_" : "");
 
     const existingHeaderGuard = findExistingHeaderGuard(editor.document);
     if (existingHeaderGuard === undefined) {
