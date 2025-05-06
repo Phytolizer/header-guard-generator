@@ -41,6 +41,11 @@
                             "src",
                             "include"
                         ]
+                    },
+                    "header-guard-generator.enableTrailingUnderscore": {
+                        "type": "boolean",
+                        "description": "Add an '_' character at the end of the generated identifier",
+                        "default": true
                     }
                 }
             }
